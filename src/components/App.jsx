@@ -17,7 +17,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Routes>
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route path="/" element={<CommonLayout />}>
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
