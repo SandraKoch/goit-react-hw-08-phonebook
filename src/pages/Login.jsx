@@ -1,15 +1,13 @@
-const Login = () => {
+import { Helmet } from 'react-helmet';
+import { LoginForm } from 'components/LoginForm/LoginForm';
+
+export default function Login() {
   return (
     <div>
-      <form>
-        <label htmlFor="email">Email</label>
-        <input type="text" id="email" />
-        <label htmlFor="password">Password</label>
-        <input type="text" id="password" />
-        <button type="submit">Log In</button>
-      </form>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+      <LoginForm />
     </div>
   );
-};
-
-export default Login;
+}
