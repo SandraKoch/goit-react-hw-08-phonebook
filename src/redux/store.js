@@ -13,7 +13,11 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from '../redux/authSlice';
 import { contactsReducer } from './contactsSlice';
 
-const authPersistConfig = { key: 'auth', storage, whitelist: ['token'] };
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token', 'isLoggedIn', 'user'],
+};
 
 export const store = configureStore({
   reducer: {

@@ -1,5 +1,5 @@
 import { AuthNavigation } from 'components/AuthNavigation';
-import { Navigation } from 'components/Navigation.jsx';
+import { Navigation } from 'components/Navigation/index.jsx';
 import { UserMenu } from 'components/UserMenu';
 import { useAuth } from 'hooks';
 

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { refreshToken } from 'redux/authSlice';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchContacts } from '../redux/operations';
 // import { selectContacts } from 'redux/selectors';
@@ -19,7 +20,7 @@ export const App = () => {
   const { isRefreshig } = useAuth();
 
   useEffect(() => {
-    // dispatch(refreshUser());
+    dispatch(refreshToken());
   }, [dispatch]);
 
   return isRefreshig ? (
