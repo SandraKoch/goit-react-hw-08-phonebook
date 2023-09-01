@@ -8,7 +8,10 @@ const {
   addingInProgress,
   addingSuccess,
   addingError,
-} = require('./contactsSlice');
+  deletingInProgress,
+  deletingSuccess,
+  deletingError,
+} = require('./contacts/contactsSlice');
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -48,6 +51,17 @@ export const addNewContact =
       dispatch(addingError(error.message));
     }
   };
+
+export const deleteContact = contactId => async dispatch => {
+  try {
+    dispatch(deletingInProgress());
+
+    await axios.delete(`/contacts/${contactId}`);
+    dispatch(deletingSuccess(contactId));
+  } catch (error) {
+    dispatch(deletingError(error.message));
+  }
+};
 
 // auth operations
 

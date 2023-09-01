@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import { refreshToken } from 'redux/authSlice';
+import { refreshToken } from 'redux/auth/authSlice';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchContacts } from '../redux/operations';
 // import { selectContacts } from 'redux/selectors';
