@@ -1,5 +1,4 @@
-import { setAuthHeader } from '../contacts/operations';
-import { logIn, logOut, register } from './operations';
+import { logIn, logOut, register, setAuthHeader } from './operations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
