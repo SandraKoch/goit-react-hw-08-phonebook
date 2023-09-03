@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/operations';
+import { logIn } from 'redux/contacts/operations';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
