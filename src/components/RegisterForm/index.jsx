@@ -1,3 +1,4 @@
+import { Button, Stack, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
@@ -26,22 +27,19 @@ export const RegisterForm = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="user">
-        Username
-        <input type="text" id="user" name="user" placeholder="..." />
-      </label>
-
-      <label htmlFor="email">
-        Email address
-        <input type="text" id="email" name="email" placeholder="..." />
-      </label>
-
-      <label htmlFor="password">
-        Password
-        <input type="text" id="password" name="password" placeholder="..." />
-      </label>
-
-      <button type="submit">Register</button>
+      <Stack spacing={2}>
+        <TextField id="user" label="User name" type="text" variant="filled" />
+        <TextField id="email" label="Email" type="text" variant="filled" />
+        <TextField
+          id="password"
+          label="Password"
+          type="text"
+          variant="filled"
+        />
+        <Button variant="contained" type="submit">
+          Register
+        </Button>
+      </Stack>
     </form>
   );
 };

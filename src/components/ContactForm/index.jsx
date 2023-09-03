@@ -1,3 +1,4 @@
+import { Button, Stack, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { addNewContact } from 'redux/contacts/operations';
 
@@ -20,7 +21,15 @@ export const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">
+      <Stack spacing={2} direction="row">
+        <TextField
+          id="name"
+          label="Contact name"
+          type="text"
+          variant="filled"
+          title="Name may contain only letters, apostrophe, dash and spaces"
+        />
+        {/* <label htmlFor="name">
         Name
         <input
           type="text"
@@ -28,8 +37,15 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces"
           required
         />
-      </label>
-      <label htmlFor="phone">
+      </label> */}
+        <TextField
+          id="phone"
+          label="Phone number"
+          type="tel"
+          variant="filled"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        />
+        {/* <label htmlFor="phone">
         Phone number
         <input
           type="tel"
@@ -37,8 +53,12 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
-      <button type="submit">Add contact</button>
+      </label> */}
+        <Button variant="contained" type="submit">
+          Add contact
+        </Button>
+      </Stack>
+      {/* <button type="submit">Add contact</button> */}
     </form>
   );
 };
