@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as React from 'react';
-import Button from '@mui/joy/Button';
+import Button from '@mui/material/Button';
 import Link from '@mui/joy/Link';
 import Typography from '@mui/joy/Typography';
 import ArrowForward from '@mui/icons-material/ArrowForward';
@@ -16,8 +16,12 @@ import { useNavigate } from 'react-router';
 export const WelcomePage2 = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleRegisterClick = () => {
     navigate('/register', { replace: true });
+  };
+
+  const handleLoginClick = () => {
+    navigate('/login', { replace: true });
   };
   return (
     <Container
@@ -71,14 +75,17 @@ export const WelcomePage2 = () => {
           The list of important contacts always right at hand
         </Typography>
         <Button
-          onClick={handleClick}
+          onClick={handleRegisterClick}
           size="lg"
           endDecorator={<ArrowForward fontSize="xl" />}
         >
           Get Started
         </Button>
         <Typography>
-          Already a member? <Link fontWeight="lg">Sign in</Link>
+          Already a member?{' '}
+          <Link onClick={handleLoginClick} fontWeight="lg">
+            Sign in
+          </Link>
         </Typography>
       </Box>
       <AspectRatio
