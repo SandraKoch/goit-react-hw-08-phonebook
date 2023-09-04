@@ -22,10 +22,15 @@ export const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Typography
+        color="primary"
+        fontSize="lg"
+        fontWeight="lg"
+        paddingBottom="15px"
+      >
+        Add new contact here:
+      </Typography>
       <Stack spacing={2} direction="row">
-        <Typography color="primary" fontSize="lg" fontWeight="lg">
-          Search your contacts
-        </Typography>
         <TextField
           id="name"
           label="Contact name"

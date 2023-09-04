@@ -22,7 +22,6 @@ export const ContactList = () => {
   };
 
   const StyledList = styled(List)({
-    // hover states
     '& .MuiListItem-root:hover': {
       backgroundColor: 'orange',
       '&, & .MuiAvatar-root': {
@@ -38,6 +37,7 @@ export const ContactList = () => {
           <ListItem
             key={item.id}
             item={item}
+            sx={{ borderBottom: '1px solid grey', minWidth: '300px' }}
             secondaryAction={
               <IconButton
                 edge="end"

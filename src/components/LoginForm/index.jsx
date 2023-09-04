@@ -48,7 +48,7 @@ export const LoginForm = () => {
           md={7}
           sx={{
             backgroundImage:
-              'url(https://source.unsplash.com/random?wallpapers)',
+              'url(https://github.com/SandraKoch/goit-react-hw-08-phonebook/blob/main/src/images/laptop-6062423_1280.jpg?raw=true)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: t =>
               t.palette.mode === 'light'
@@ -72,7 +72,7 @@ export const LoginForm = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in to Phonebook
+              Log in
             </Typography>
             <Box
               component="form"
@@ -108,8 +108,8 @@ export const LoginForm = () => {
               >
                 Log In
               </Button>
-              <Copyright sx={{ mt: 5 }} />
             </Box>
+            <Copyright sx={{ mt: 5 }} />
             {/* <form onSubmit={handleSubmit}>
                 <Stack spacing={2}>
                   <TextField id="email" label="Email" type="text" variant="filled" />
