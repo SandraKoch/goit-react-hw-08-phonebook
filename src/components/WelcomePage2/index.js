@@ -99,7 +99,10 @@ export const WelcomePage2 = () => {
           flexBasis: '50%',
         })}
       >
-        <img src="./train-track-2507499_1280.jpg" alt="" />
+        <img
+          src="https://github.com/SandraKoch/goit-react-hw-08-phonebook/blob/main/src/images/train-track-2507499_1280.jpg?raw=true"
+          alt=""
+        />
       </AspectRatio>
     </Container>
   );
