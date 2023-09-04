@@ -1,7 +1,19 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import TextField from '@mui/material/TextField';
-import { Button, Stack } from '@mui/material';
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  Grid,
+  Paper,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from '@mui/material';
+import { Box } from '@mui/system';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Copyright } from 'components/Copyright';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -23,21 +35,99 @@ export const LoginForm = () => {
     });
   };
 
+  const defaultTheme = createTheme();
+
   return (
-    <form onSubmit={handleSubmit}>
-      <Stack spacing={2}>
-        <TextField id="email" label="Email" type="text" variant="filled" />
-        <TextField
-          id="password"
-          label="Password"
-          type="text"
-          variant="filled"
+    <ThemeProvider theme={defaultTheme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage:
+              'url(https://source.unsplash.com/random?wallpapers)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: t =>
+              t.palette.mode === 'light'
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         />
-        <Button variant="contained" type="submit">
-          Log in
-        </Button>
-      </Stack>
-    </form>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in to Phonebook
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 1 }}
+            >
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Log In
+              </Button>
+              <Copyright sx={{ mt: 5 }} />
+            </Box>
+            {/* <form onSubmit={handleSubmit}>
+                <Stack spacing={2}>
+                  <TextField id="email" label="Email" type="text" variant="filled" />
+                  <TextField
+                  id="password"
+                  label="Password"
+                  type="text"
+                  variant="filled"
+                  />
+                  <Button variant="contained" type="submit">
+                  Log in
+                  </Button>
+                  </Stack>
+              </form> */}
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 };
 

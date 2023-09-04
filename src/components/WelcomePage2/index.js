@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
 import Typography from '@mui/joy/Typography';
 import ArrowForward from '@mui/icons-material/ArrowForward';
@@ -9,9 +9,7 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Container from '@mui/joy/Container';
 import { useNavigate } from 'react-router';
-// import { typographyClasses } from '@mui/joy/Typography';
-// import { NavLink } from 'react-router-dom';
-// import TwoSidedLayout from '../components/TwoSidedLayout';
+import { Copyright } from 'components/Copyright';
 
 export const WelcomePage2 = () => {
   const navigate = useNavigate();
@@ -87,6 +85,7 @@ export const WelcomePage2 = () => {
             Sign in
           </Link>
         </Typography>
+        <Copyright />
       </Box>
       <AspectRatio
         ratio={600 / 520}
