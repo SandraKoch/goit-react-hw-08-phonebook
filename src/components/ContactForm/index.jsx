@@ -1,3 +1,4 @@
+import Typography from '@mui/joy/Typography/Typography';
 import { Button, Stack, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { addNewContact } from 'redux/contacts/operations';
@@ -22,6 +23,9 @@ export const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <Stack spacing={2} direction="row">
+        <Typography color="primary" fontSize="lg" fontWeight="lg">
+          Search your contacts
+        </Typography>
         <TextField
           id="name"
           label="Contact name"

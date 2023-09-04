@@ -1,9 +1,10 @@
-import { WelcomePage } from 'components/WelcomePage';
+// import { WelcomePage } from 'components/WelcomePage';
+import { WelcomePage2 } from 'components/WelcomePage2';
 
 const Home = () => {
   return (
     <main>
-      <WelcomePage />
+      <WelcomePage2 />
     </main>
   );
 };

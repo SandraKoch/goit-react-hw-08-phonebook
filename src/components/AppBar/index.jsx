@@ -1,15 +1,21 @@
+import { AppBar, Toolbar } from '@mui/material';
+import { Box } from '@mui/system';
 import { AuthNavigation } from 'components/AuthNavigation';
 import { Navigation } from 'components/Navigation/index.jsx';
 import { UserMenu } from 'components/UserMenu';
 import { useAuth } from 'hooks';
 
-export const AppBar = () => {
+export const ApplicationBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
-    </header>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar style={{ justifyContent: 'space-between' }}>
+          <Navigation />
+          {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
