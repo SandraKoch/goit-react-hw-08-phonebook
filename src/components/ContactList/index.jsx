@@ -5,15 +5,17 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  styled,
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { PersonRounded } from '@mui/icons-material';
 import { deleteContact } from 'redux/contacts/operations';
-import styled from '@emotion/styled';
+import { getFilter } from 'redux/filter/selectors';
 
 export const ContactList = () => {
+  const filterQuery = useSelector(getFilter);
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
@@ -31,9 +33,12 @@ export const ContactList = () => {
   });
 
   return (
-    <div>
-      <StyledList>
-        {contacts.map(item => (
+    <StyledList sx={{ width: '100%', marginTop: 0 }}>
+      {contacts
+        .filter(item =>
+          item.name.toLowerCase().includes(filterQuery.toLowerCase())
+        )
+        .map(item => (
           <ListItem
             key={item.id}
             item={item}
@@ -56,16 +61,6 @@ export const ContactList = () => {
             <ListItemText primary={item.name} secondary={`${item.number}`} />
           </ListItem>
         ))}
-      </StyledList>
-      {/* <ul>
-        {contacts
-          // .filter(item =>
-          //   item.name.toLowerCase().includes(filterQuery.toLowerCase())
-          // )
-          .map(item => (
-            <ContactItem key={item.id} item={item} />
-          ))}
-      </ul> */}
-    </div>
+    </StyledList>
   );
 };

@@ -2,6 +2,7 @@ import Typography from '@mui/joy/Typography/Typography';
 import { Button, Stack, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { addNewContact } from 'redux/contacts/operations';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export const ContactForm = () => {
         fontWeight="lg"
         paddingBottom="15px"
       >
-        Add new contact here:
+        Add a new contact here:
       </Typography>
       <Stack spacing={2} direction="row">
         <TextField
@@ -38,15 +39,6 @@ export const ContactForm = () => {
           variant="filled"
           title="Name may contain only letters, apostrophe, dash and spaces"
         />
-        {/* <label htmlFor="name">
-        Name
-        <input
-          type="text"
-          id="name"
-          title="Name may contain only letters, apostrophe, dash and spaces"
-          required
-        />
-      </label> */}
         <TextField
           id="phone"
           label="Phone number"
@@ -54,20 +46,10 @@ export const ContactForm = () => {
           variant="filled"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         />
-        {/* <label htmlFor="phone">
-        Phone number
-        <input
-          type="tel"
-          id="phone"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </label> */}
         <Button variant="contained" type="submit">
-          Add contact
+          <PersonAddOutlinedIcon />
         </Button>
       </Stack>
-      {/* <button type="submit">Add contact</button> */}
     </form>
   );
 };
