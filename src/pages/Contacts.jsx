@@ -16,7 +16,7 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <Grid container component="main" sx={{ height: '100vh' }}>
+    <Grid container component="main">
       <CssBaseline />
       <Grid item xs={18} sm={7} md={5} component={Paper} elevation={6} square>
         <Box
