@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { Box } from '@mui/system';
+import { EditDialog } from 'components/EditDialog';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,17 @@ export const UserMenu = () => {
   const handleLogout = () => {
     dispatch(logOut());
     dispatch(setAnchorEl(null));
+  };
+
+  // modal - dialog
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const openEdit = () => {
+    setOpenDialog(true);
+  };
+
+  const handleEdit = () => {
+    openEdit();
   };
 
   // const { user } = useAuth();
@@ -87,8 +99,9 @@ export const UserMenu = () => {
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleEdit}>
             <Avatar /> Edit Profile
+            <EditDialog open={openDialog} />
           </MenuItem>
           <Divider />
           {/* <MenuItem onClick={handleClose}>
