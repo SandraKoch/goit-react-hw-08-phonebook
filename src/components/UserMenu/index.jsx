@@ -1,22 +1,14 @@
-import { Logout, Settings } from '@mui/icons-material';
+import { Logout } from '@mui/icons-material';
 import {
   Avatar,
-  Button,
-  // ClickAwayListener,
   Divider,
-  // Grow,
   IconButton,
-  List,
   ListItemIcon,
   Menu,
   MenuItem,
-  // MenuList,
-  // Paper,
-  // Toolbar,
   Tooltip,
 } from '@mui/material';
 import React, { useState } from 'react';
-// import { Box } from '@mui/system';
 // import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
