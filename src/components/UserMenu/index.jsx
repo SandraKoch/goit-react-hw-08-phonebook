@@ -1,17 +1,17 @@
-import { Button, Toolbar, Typography } from '@mui/material';
+import { Button, Toolbar } from '@mui/material';
 // import { Box } from '@mui/system';
-import { useAuth } from 'hooks';
+// import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
+  // const { user } = useAuth();
 
   return (
     <Toolbar>
       {/* <Box> */}
-      <Typography>Welcome, {user.name}!</Typography>
+      {/* <Typography>Welcome, {user.name}!</Typography> */}
       <Button
         variant="contained"
         type="button"
