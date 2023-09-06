@@ -20,26 +20,27 @@ export const UserMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = event => {
-    dispatch(setAnchorEl(event.currentTarget));
+    setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    dispatch(setAnchorEl(null));
+    setAnchorEl(null);
   };
 
   const handleLogout = () => {
     dispatch(logOut());
-    dispatch(setAnchorEl(null));
+    setAnchorEl(null);
   };
 
   // modal - dialog
   const [openDialog, setOpenDialog] = useState(false);
 
-  const openEdit = () => {
+  const handleEdit = event => {
+    // openEdit();
     setOpenDialog(true);
   };
 
-  const handleEdit = () => {
-    openEdit();
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   // const { user } = useAuth();
@@ -69,7 +70,7 @@ export const UserMenu = () => {
           id="account-menu"
           open={open}
           onClose={handleClose}
-          onClick={handleClose}
+          // onClick={handleClose}
           PaperProps={{
             elevation: 0,
             sx: {
@@ -101,7 +102,7 @@ export const UserMenu = () => {
         >
           <MenuItem onClick={handleEdit}>
             <Avatar /> Edit Profile
-            <EditDialog open={openDialog} />
+            <EditDialog open={openDialog} onClick={handleCloseDialog} />
           </MenuItem>
           <Divider />
           {/* <MenuItem onClick={handleClose}>

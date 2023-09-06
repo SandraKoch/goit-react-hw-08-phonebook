@@ -23,9 +23,14 @@ export const ContactForm = () => {
 
   return (
     <Box
-      sx={{ my: 3, display: 'flex', width: '100%', flexDirection: 'column' }}
+      sx={{
+        my: 3,
+        display: 'flex',
+        // width: '100%',
+        flexDirection: 'column',
+      }}
     >
-      <form onSubmit={handleSubmit} width>
+      <form onSubmit={handleSubmit}>
         <Typography
           color="primary"
           fontSize="lg"
