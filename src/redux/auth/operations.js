@@ -5,6 +5,7 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 // Utility to add JWT
 export const setAuthHeader = token => {
+  // catch here 401 error and redirect to login
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -37,7 +38,7 @@ export const getUserData = createAsyncThunk(
   async (cred, thunkAPI) => {
     try {
       const response = await axios.get('/users/current', cred);
-      setAuthHeader(response.data.token);
+      // setAuthHeader(response.data.token);
       console.log(response.data);
       return response.data;
     } catch (error) {

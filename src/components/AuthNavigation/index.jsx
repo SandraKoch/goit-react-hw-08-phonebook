@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const AuthNavigation = () => {
   return (
     <Toolbar>
-      <Grid spacing={6} sx={{ display: 'flex' }}>
+      <Grid spacing={6} container sx={{ display: 'flex' }}>
         <NavLink
           to="/register"
           style={{

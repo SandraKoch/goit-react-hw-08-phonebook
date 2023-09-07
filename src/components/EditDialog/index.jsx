@@ -1,86 +1,63 @@
-import { Box, Button, Dialog, DialogTitle, TextField } from '@mui/material';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Typography,
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUserData } from 'redux/auth/operations';
+import { selectUser } from 'redux/auth/selectors';
 
 export const EditDialog = props => {
   const dispatch = useDispatch();
-  const [openDialog, setOpenDialog] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const user = useSelector(selectUser);
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    const form = e.currentTarget;
-
-    dispatch(
-      getUserData({
-        user: form.elements.user.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
+    dispatch(getUserData());
   };
   const { open } = props;
-  const handleClose = () => {
-    console.log('DialogSubmit');
-    setOpenDialog(false);
-    setAnchorEl(null);
-  };
+
   return (
-    <Dialog onClose={handleClose} open={open} anchorEl={anchorEl}>
+    <Dialog
+      // onClose={handleClose}
+      open={open}
+    >
       <DialogTitle>Your account data</DialogTitle>
-      <Box
-        component="form"
-        noValidate
-        onSubmit={handleSubmit}
-        sx={{ mt: 1, mx: 2 }}
+      <IconButton
+        aria-label="close"
+        onClick={() => props.onCLose()}
+        //   onClick={handleClose}
+        sx={{
+          position: 'absolute',
+          right: 8,
+          top: 8,
+          color: theme => theme.palette.grey[500],
+        }}
       >
-        {/* <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="user"
-          name="user"
-          label="User name"
-          type="text"
-          autoComplete="off"
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        /> */}
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Show
-        </Button>
-      </Box>
+        <CloseIcon />
+      </IconButton>
+      <DialogContent dividers>
+        <Box sx={{ mt: 1, mx: 2 }}>
+          <Typography>User name: {user.name}</Typography>
+          <Typography>Email: {user.email}</Typography>
+          <Button
+            onClick={handleSubmit}
+            type="button"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Request personal data from API
+          </Button>
+
+          {/* <button onClick={() => props.onCLose()}>OK (opened {open})</button> */}
+        </Box>
+      </DialogContent>
     </Dialog>
   );
-};
-
-EditDialog.propTypes = {
-  //   onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
 };

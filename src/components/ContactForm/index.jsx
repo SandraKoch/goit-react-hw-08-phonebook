@@ -26,7 +26,7 @@ export const ContactForm = () => {
       sx={{
         my: 3,
         display: 'flex',
-        // width: '100%',
+        width: '100%',
         flexDirection: 'column',
       }}
     >

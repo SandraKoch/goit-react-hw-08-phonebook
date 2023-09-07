@@ -40,7 +40,7 @@ export const ContactList = () => {
         )
         .map(item => (
           <ListItem
-            key={item.id}
+            key={item.id + 'i'}
             item={item}
             sx={{ borderBottom: '1px solid grey', minWidth: '300px' }}
             secondaryAction={
