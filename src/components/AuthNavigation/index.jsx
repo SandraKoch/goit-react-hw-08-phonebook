@@ -1,16 +1,16 @@
-import { Grid, Toolbar } from '@mui/material';
+import { Box, Toolbar } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 export const AuthNavigation = () => {
   return (
     <Toolbar>
-      <Grid spacing={6} container sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <NavLink
           to="/register"
           style={{
             color: 'white',
             textDecoration: 'none',
-            marginRight: '10px',
+            marginRight: '20px',
             fontSize: '22px',
           }}
         >
@@ -31,7 +31,7 @@ export const AuthNavigation = () => {
         >
           Login
         </NavLink>
-      </Grid>
+      </Box>
     </Toolbar>
   );
 };
